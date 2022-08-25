@@ -6,7 +6,7 @@ mongoose
     { useUnifiedTopology: true }
   )
   .then(() => {
-    console.log("database connected sucessfully!");
+    console.log("database connected sucessfully");
   })
   .catch((err) => {
     console.log('error in setting up db')
