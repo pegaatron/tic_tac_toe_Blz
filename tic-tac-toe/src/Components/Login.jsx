@@ -1,1 +1,13 @@
 import React from "react";
+
+const Login = () => {
+  // const { user } = useAuth();
+
+  // console.log(user)
+  return (
+    <div>
+      <h1>Login Page</h1>
+    </div>
+  )
+}
+export default Login;

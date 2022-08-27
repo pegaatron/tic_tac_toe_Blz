@@ -1,4 +1,4 @@
-import React { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase-config.js'
 import {
   createUserWithEmailAndPassword,
@@ -34,8 +34,8 @@ export default function AuthContextProvider({ children }) {
   }, [])
 
   useEffect(() => {
-    console.log('The current user is', currentUser)
-  }, [currentUser])
+    console.log('The current user is', curUser)
+  }, [curUser])
 
   function login(email, password) {
     return signInWithEmailAndPassword(auth, email, password)
@@ -60,7 +60,7 @@ export default function AuthContextProvider({ children }) {
   }
 
   const value = {
-    currentUser,
+    curUser,
     signInWithGoogle,
     signInWithFacebook,
     login,
