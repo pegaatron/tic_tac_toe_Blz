@@ -7,7 +7,7 @@ const Home = () => {
   const [isStarted, setIsStarted] = useState(true)
   const [userChar, setUserChar] = useState('x')
   const [compChar, setCompChar] = useState('o')
-  const [isEasy, setEasy] = useState(false)
+  const [isEasy, setEasy] = useState(true)
 
   return (
     <AppContainer>

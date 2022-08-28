@@ -3,9 +3,10 @@ import Tile from './Tile.jsx'
 import { BoardDiv } from '../../Css/StyleComps.js'
 import {BoardStateContext} from '../Game.jsx'
 
-const GameBoard = ({tiles, onClick}) => {
+const GameBoard = () => {
   const rowColSize = 3
   const {board} = useContext(BoardStateContext)
+
   return (
     <BoardDiv>
       {[...new Array(rowColSize)].map((boardRow, i) => {
