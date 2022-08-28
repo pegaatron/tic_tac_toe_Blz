@@ -1,11 +1,13 @@
 import React, {useState, createContext} from 'react'
-import GameBoard from './Board/GameBoard.jsx'
+import Game from './Game.jsx'
 import { Header, AppContainer, GameDiv } from '../Css/StyleComps.js'
 
-
+export const UserCharContext = createContext()
 const Home = () => {
   const [isStarted, setIsStarted] = useState(true)
-
+  const [userChar, setUserChar] = useState('x')
+  const [compChar, setCompChar] = useState('o')
+  const [isEasy, setEasy] = useState(false)
 
   return (
     <AppContainer>
@@ -18,9 +20,11 @@ const Home = () => {
         </div>
       </Header>
       {isStarted ?
-      <GameDiv>
-        <GameBoard/>
-      </GameDiv>
+      <UserCharContext.Provider value ={{userChar, compChar, isEasy}}>
+        <GameDiv>
+          <Game/>
+        </GameDiv>
+      </UserCharContext.Provider>
       : null
       }
 

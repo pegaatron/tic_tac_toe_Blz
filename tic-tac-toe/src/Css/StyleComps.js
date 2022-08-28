@@ -14,6 +14,8 @@ export const AppContainer = styled.div`
 `;
 
 export const BoardDiv = styled.div`
+  width: 100%;
+  height: 70%
 `;
 
 export const BoardContainer = styled.div`
@@ -33,5 +35,9 @@ export const RowDiv = styled.div`
 `;
 
 export const Squares = styled.button`
-  padding: 90px;
+  padding: 70px;
+  width: 10%;
+  max-height: 10%;
+  background-color: white;
+  cursor: pointer
 `

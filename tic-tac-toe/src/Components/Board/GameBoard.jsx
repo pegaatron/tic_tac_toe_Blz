@@ -1,22 +1,23 @@
-import React from "react";
+import React, {useContext} from "react";
 import Tile from './Tile.jsx'
-import { BoardDiv, RowDiv } from '../../Css/StyleComps.js'
-// import chunk from 'lodash/chunk';
+import { BoardDiv } from '../../Css/StyleComps.js'
+import {BoardStateContext} from '../Game.jsx'
 
 const GameBoard = ({tiles, onClick}) => {
   const rowColSize = 3
+  const {board} = useContext(BoardStateContext)
   return (
     <BoardDiv>
       {[...new Array(rowColSize)].map((boardRow, i) => {
         return (
-          <RowDiv key={i}>
+          <div key={i}>
             {[...new Array(rowColSize)].map((boardCol,j) => {
+              let index = i*3 + j;
               return (
-                <Tile key={j}/>
+                <Tile key={j} val={board[index]} col={j} row={i}/>
               )
             })}
-          </RowDiv>
-
+          </div>
         )
       })}
     </BoardDiv>
