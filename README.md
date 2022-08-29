@@ -12,7 +12,7 @@ In this full-stack web app, users can challenge a computer to a game of tic-tac-
 ## Demo
 
 ### User Login
-<a href="url"><img src="https://github.com/pegaatron/blizzard_TicTacToe/blob/main/public/demos/LoginDemoFinal.gif" height="600" width="600" ></a>
+<a href="url"><img src="https://github.com/pegaatron/blizzard_TicTacToe/blob/main/public/demos/LoginDemoFinal.gif" display='flex' justify-content='center' height="550" width="500" ></a>
 
 ## Available Scripts
 
