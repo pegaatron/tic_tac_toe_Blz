@@ -32,9 +32,6 @@ export default function AuthContextProvider({ children }) {
     }
   }, [])
 
-  useEffect(() => {
-    console.log('The current user is', curUser)
-  }, [curUser])
 
   function login(email, password) {
     return signInWithEmailAndPassword(auth, email, password)
@@ -45,7 +42,6 @@ export default function AuthContextProvider({ children }) {
   }
 
   function logout() {
-    console.log('logging out')
     return signOut(auth)
   }
 

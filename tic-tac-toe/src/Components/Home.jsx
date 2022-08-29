@@ -25,6 +25,7 @@ const Home = () => {
   const [isSignedIn, setStatus] = useState(false);
   const {curUser} = useAuth();
   const [showSetting, setShowSet] = useState(false);
+
   const [wins, setWins] = useState(0)
   const [ties, setTies] = useState(0)
   const [losses, setL] = useState(0)
@@ -32,8 +33,9 @@ const Home = () => {
   useEffect(() => {
     if (curUser){
       setStatus(true)
+      setShowSet(false);
       if (curUser !== 'guest') {
-        getUserHistory()
+        getUserHistory();
       }
     }
   }, [curUser])
@@ -44,9 +46,11 @@ const Home = () => {
 
 
   const getUserHistory = async () => {
+    console.log('getuserhist:', curUser.email)
     try {
       const res = await axios.get(`${process.env.REACT_APP_URL}/user`,
-      { params: {curUser}});
+      { params: {email: curUser.email}});
+      console.log(res.data)
       if (res.data.length === 0) {
         try {
           const res = await axios.post(`${process.env.REACT_APP_URL}/user`,
@@ -55,9 +59,10 @@ const Home = () => {
           console.log('err creating new acc')
         }
       } else {
-        setWins(res.data.wins)
-        setTies(res.data.ties)
-        setL(res.data.losses)
+        console.log('resData:',res.data)
+        setWins(res.data[0].win);
+        setTies(res.data[0].tie);
+        setL(res.data[0].loss);
       }
     } catch (err) {
       console.log('err while getting user info:', err)

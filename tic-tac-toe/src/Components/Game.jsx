@@ -29,6 +29,7 @@ const Game = () => {
     if (winner) {
       setIsOver(true)
       setOpenModal(true)
+      setCpuNext(false)
     } else {
       if (cpuNext) {
         setTimeout(computerMove, 1500)

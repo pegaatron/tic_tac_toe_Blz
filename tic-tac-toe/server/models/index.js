@@ -2,7 +2,7 @@ const db = require('../database/db.js');
 
 module.exports = {
   getUser: (profile) => {
-    return db.User.find(profile)
+    return db.User.find({email: profile.email})
   },
 
   createUser: (profile) => {

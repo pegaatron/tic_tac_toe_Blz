@@ -8,7 +8,7 @@ module.exports = {
       password: req.query.password
     }
     model.getUser(profile)
-    .then((data) => res.send(data).status(200))
+    .then((data) => {console.log(data); res.send(data).status(200)})
     .catch((err) => {console.log(err); res.sendStatus(404)})
   },
 
@@ -36,7 +36,6 @@ module.exports = {
   },
 
   updateWinScore: (req,res) => {
-    console.log('updating user score:', req.body.email)
     let data = {email: req.body.email, win: req.body.win}
     model.updateWinScore(data)
     .then(() => {res.sendStatus(201)})
@@ -47,7 +46,6 @@ module.exports = {
   },
 
   updateLossScore: (req,res) => {
-    console.log('updating user score:', req.body.email)
     let data = {email: req.body.email, loss: req.body.loss}
     model.updateLossScore(data)
     .then(() => {res.sendStatus(201)})
@@ -58,7 +56,6 @@ module.exports = {
   },
 
   updateTieScore: (req,res) => {
-    console.log('updating user score:', req.body.email)
     let data = {email: req.body.email, tie: req.body.tie}
     model.updateTieScore(data)
     .then(() => {res.sendStatus(201)})

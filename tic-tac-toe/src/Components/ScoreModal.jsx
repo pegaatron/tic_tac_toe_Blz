@@ -21,6 +21,9 @@ const ScoreModal = ({restart}) => {
   const {curUser} = useAuth();
 
   useEffect(() => {
+    console.log(wins)
+    console.log(ties)
+    console.log(losses)
     if (winner === 'tie') {
       setTies(ties+1);
     } else if (winner === 'player') {
