@@ -19,15 +19,13 @@ Users can choose to register and sign in with an account, sign in with a Google 
 
 ### Game Play
 <p align="center">
-  <a href="url"><img src="https://github.com/pegaatron/blizzard_TicTacToe/blob/main/public/demos/PlayGame.gif
-" height="500" width="450" ></a>
+  <a href="url"><img src="https://github.com/pegaatron/blizzard_TicTacToe/blob/main/public/demos/PlayGame.gif" height="500" width="450" ></a>
 </p>
 Turn based game play where starting person will be randomized to simulate real world game play. A score modal will appear at the end displaying the users score.
 
 ### Adjusting Marker and Difficulty
 <p align="center">
-  <a href="url"><img src="https://github.com/pegaatron/blizzard_TicTacToe/blob/main/public/demos/changeDifficulty.gif
-" height="500" width="450" ></a>
+  <a href="url"><img src="https://github.com/pegaatron/blizzard_TicTacToe/blob/main/public/demos/changeDifficulty.gif" height="500" width="450" ></a>
 </p>
 User can change their marker perference between 'X' and 'O' as well as adjust the computer's difficulty.
 
