@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# Tic-Tac-Toe Web App
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![ExpressJS](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Background
+> This web app was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and built on a MERN stack.
+
+In this full-stack web app, users can challenge a computer to a game of tic-tac-toe. This application supports user logins, which tracks and stores their score history (wins, losses, and ties). To spice up the game, there are two modes that can be played: easy and hard, where hard mode models human-playing behavior with the intention to win. Similarly to a real game, turns will be selected randomly as well.
+
+## Demo
+
+### User Login
+<a href="url"><img src="https://github.com/pegaatron/blizzard_TicTacToe/blob/main/public/demos/LoginDemoFinal.gif" height="48" width="48" ></a>
 
 ## Available Scripts
 
