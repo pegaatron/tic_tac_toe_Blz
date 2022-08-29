@@ -8,7 +8,7 @@ module.exports = {
       password: req.query.password
     }
     model.getUser(profile)
-    .then((data) => {console.log(data); res.send(data).status(200)})
+    .then((data) => {res.send(data).status(200)})
     .catch((err) => {console.log(err); res.sendStatus(404)})
   },
 
