@@ -36,8 +36,9 @@ module.exports = {
   },
 
   updateWinScore: (req,res) => {
-    let user = req.body.email
-    model.putUserScore(user)
+    console.log('updating user score:', req.body.email)
+    let data = {email: req.body.email, win: req.body.win}
+    model.updateWinScore(data)
     .then(() => {res.sendStatus(201)})
     .catch((err) => {
       console.log(err);
@@ -46,8 +47,9 @@ module.exports = {
   },
 
   updateLossScore: (req,res) => {
-    let user = req.body.email
-    model.putUserScore(user)
+    console.log('updating user score:', req.body.email)
+    let data = {email: req.body.email, loss: req.body.loss}
+    model.updateLossScore(data)
     .then(() => {res.sendStatus(201)})
     .catch((err) => {
       console.log(err);
@@ -56,8 +58,9 @@ module.exports = {
   },
 
   updateTieScore: (req,res) => {
-    let user = req.body.email
-    model.putUserScore(user)
+    console.log('updating user score:', req.body.email)
+    let data = {email: req.body.email, tie: req.body.tie}
+    model.updateTieScore(data)
     .then(() => {res.sendStatus(201)})
     .catch((err) => {
       console.log(err);

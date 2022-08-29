@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, createContext } from 'react';
 import GameBoard from './Board/GameBoard.jsx';
-import { EndDiv, TurnDiv, RestartBtn, CenterDiv } from '../Css/StyleComps.js'
+import { EndDiv, TurnDiv, RestartBtn, CenterDiv, GameContainer } from '../Css/StyleComps.js'
 import {UserCharContext} from './Home.jsx'
 import ScoreModal from './ScoreModal.jsx'
 
@@ -126,7 +126,9 @@ const Game = () => {
 
   return (
     <BoardStateContext.Provider value={{board, setBoard, cpuNext, setCpuNext, isOver, winner, setOpenModal}}>
-      <GameBoard/>
+      <GameContainer>
+        <GameBoard/>
+      </GameContainer>
       <TurnDiv>
         {openModal ?
         <CenterDiv>

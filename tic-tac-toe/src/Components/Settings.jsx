@@ -69,7 +69,7 @@ const Settings = ({status}) => {
   return (
   <ModalContainer>
     <ExitContainer>
-      <ExitBtn onClick={() => closeModal()}>X</ExitBtn>
+      <ExitBtn onClick={closeModal}>X</ExitBtn>
     </ExitContainer>
     <ScoreHeader>SETTINGS:</ScoreHeader>
     <ScoreDiv>
@@ -110,6 +110,11 @@ const Settings = ({status}) => {
         ))}
       </ToggleButtonGroup>
     </ScoreDiv>
+    <ButtonDiv style={{marginTop:'10px'}}>
+      <RestartBtn
+      onClick={closeModal}
+      >Make Changes</RestartBtn>
+    </ButtonDiv>
     <ButtonDiv>
       <RestartBtn onClick={handleLogOut}>Log Out</RestartBtn>
     </ButtonDiv>

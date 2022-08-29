@@ -21,6 +21,7 @@ export const AppContainer = styled.div`
 `;
 
 export const BoardDiv = styled.div`
+  align-items: center;
   width: 100%;
   height: 70%
 `;
@@ -33,14 +34,12 @@ export const BoardContainer = styled.div`
 `;
 
 export const GameDiv = styled.div`
-  display: block;
-  margin: auto;
-  width: 50%;
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 40%;
 `;
 
-export const RowDiv = styled.div`
-
-`;
 
 export const RestartBtn = styled.button`
   height: 80%;
@@ -59,7 +58,7 @@ export const TurnDiv = styled.div`
   display: flex;
   justify-content: end;
   margin-top: 15px;
-  margin-right: 75px;
+  margin-right: 10%;
   font-size: small;
   font-family: "Courier New", monospace;
 `;
@@ -225,10 +224,6 @@ export const LoginText = styled.button`
   }
 `;
 
-export const RadioDiv = styled.div`
-
-`;
-
 export const RadioBtn = styled.input`
   position: absolute;
   opacity: 0;
@@ -239,3 +234,9 @@ export const RadioBtn = styled.input`
 export const SettingContent = styled.h4`
   margin-right: 10px;
 `
+export const GameContainer= styled.div`
+  display:flex;
+  justify-content: center;
+  align-items: center;
+`
+

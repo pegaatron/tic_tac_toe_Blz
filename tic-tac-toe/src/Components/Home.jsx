@@ -1,10 +1,18 @@
 import React, {useState, createContext, useEffect} from 'react';
 import Game from './Game.jsx';
 import Login from './Login.jsx';
-import { Header, AppContainer, GameDiv, SettingsDiv, CenterDiv } from '../Css/StyleComps.js';
+import { Header,
+   AppContainer,
+   GameDiv,
+   SettingsDiv,
+   CenterDiv,
+  GameContainer,
+  RestartBtn,
+} from '../Css/StyleComps.js';
 import { useAuth } from '../Contexts/AuthContext.js';
 import axios from 'axios';
-import Settings from './Settings.jsx'
+import Settings from './Settings.jsx';
+import {FiSettings} from 'react-icons/fi'
 
 export const UserCharContext = createContext()
 export const SettingsContext = createContext()
@@ -17,20 +25,48 @@ const Home = () => {
   const [isSignedIn, setStatus] = useState(false);
   const {curUser} = useAuth();
   const [showSetting, setShowSet] = useState(false);
+  const [wins, setWins] = useState(0)
+  const [ties, setTies] = useState(0)
+  const [losses, setL] = useState(0)
 
   useEffect(() => {
     if (curUser){
       setStatus(true)
+      if (curUser !== 'guest') {
+        getUserHistory()
+      }
     }
-    console.log('isEasy:',isEasy)
-  }, [curUser, isEasy])
+  }, [curUser])
 
   const toggleSetting = () => {
     setShowSet(!showSetting)
   }
 
-  const getUserHistory = async () => {
 
+  const getUserHistory = async () => {
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_URL}/user`,
+      { params: {curUser}});
+      if (res.data.length === 0) {
+        try {
+          const res = await axios.post(`${process.env.REACT_APP_URL}/user`,
+          {email: curUser.email, password: "gmail"});
+        } catch (err) {
+          console.log('err creating new acc')
+        }
+      } else {
+        setWins(res.data.wins)
+        setTies(res.data.ties)
+        setL(res.data.losses)
+      }
+    } catch (err) {
+      console.log('err while getting user info:', err)
+    }
+  }
+
+  const startGame = () => {
+    setIsStarted(true)
+    setShowSet(false)
   }
 
   return (
@@ -40,13 +76,15 @@ const Home = () => {
           <h1>Tic Tac Toe</h1>
         </div>
         <SettingsContext.Provider value={{setUserChar, setCompChar, userChar, setEasy, isEasy, setStatus, setShowSet}}>
-          { isSignedIn ?
+          { isSignedIn && !isStarted?
           <SettingsDiv>
             {showSetting ?
             <CenterDiv>
               <Settings/>
             </CenterDiv>
-            :<h5 onClick={toggleSetting}>Settings</h5>}
+            :<h5 onClick={toggleSetting}>
+              <FiSettings/> Settings
+              </h5>}
           </SettingsDiv>
           : null
           }
@@ -54,12 +92,22 @@ const Home = () => {
       </Header>
       {isSignedIn ?
       isStarted ?
-        <UserCharContext.Provider value ={{userChar, compChar, isEasy}}>
+        <UserCharContext.Provider value ={{userChar, compChar, isEasy, wins, losses, ties, setWins, setTies, setL, setIsStarted}}>
           <GameDiv>
             <Game/>
           </GameDiv>
         </UserCharContext.Provider>
-      : null
+      :
+      <GameContainer>
+        <RestartBtn
+        style={{
+          width: '20%',
+          height:'100%',
+          }}
+        onClick={startGame}
+        >Start Game?</RestartBtn>
+      </GameContainer>
+
       : <Login/>}
     </AppContainer>
   )

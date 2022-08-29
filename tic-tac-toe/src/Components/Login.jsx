@@ -16,17 +16,8 @@ const Login = () => {
   const { setCurUser, signInWithGoogle } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const mounted = useRef(false);
   const [isRegistering, setIsReg] = useState(false);
   const [isErr, setIsErr] = useState(false);
-
-  useEffect(() => {
-    mounted.current = true;
-    return () => {
-      mounted.current = false;
-    }
-  }, [])
-
 
   const handleLogin = async (e) => {
     try {
@@ -35,7 +26,7 @@ const Login = () => {
       if (res.data.length === 0) {
         setIsErr(true)
       } else {
-        setCurUser(email)
+        setCurUser({email,password})
 
       }
     } catch (err) {
@@ -78,7 +69,6 @@ const Login = () => {
         console.log('err creating acc', err)
       }
     }
-
   }
 
 

@@ -14,15 +14,15 @@ module.exports = {
   },
 
   updateWinScore: (userData) => {
-    return db.User.findOneAndUpdate({email: userData.email}, { $inc: {win: 1}})
+    return db.User.findOneAndUpdate({email: userData.email}, {win: userData.win})
   },
 
   updateLossScore: (userData) => {
-    return db.User.findOneAndUpdate({email: userData.email}, { $inc: {loss: 1}})
+    return db.User.findOneAndUpdate({email: userData.email}, {loss: userData.loss})
   },
 
   updateTieScore: (userData) => {
-    return db.User.findOneAndUpdate({email: userData.email}, { $inc: {tie: 1}})
+    return db.User.findOneAndUpdate({email: userData.email}, {tie: userData.tie})
   },
 
   deleteUsers: () => {
