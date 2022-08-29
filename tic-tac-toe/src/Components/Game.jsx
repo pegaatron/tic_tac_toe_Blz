@@ -135,9 +135,9 @@ const Game = () => {
          :null}
         {isOver ?
         <EndDiv>
+          <RestartBtn onClick={() => restartGame()}>Play Again?</RestartBtn>
           <h2>{winner === 'tie' ? 'Tie!'
           : winner === 'comp' ? 'You Lost!' : "You Won!"}</h2>
-          <RestartBtn onClick={() => restartGame()}>Play Again?</RestartBtn>
         </EndDiv>
         : <h2>{cpuNext ? 'Computer\'s Turn': 'Your Turn'}</h2>
         }

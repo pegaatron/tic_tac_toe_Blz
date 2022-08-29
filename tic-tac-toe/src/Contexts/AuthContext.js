@@ -1,12 +1,11 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../firebase-config.js'
+import { auth } from '../firebase_config.js'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signInWithPopup,
   GoogleAuthProvider,
-  FacebookAuthProvider,
   signOut,
  } from 'firebase/auth';
 
@@ -46,6 +45,7 @@ export default function AuthContextProvider({ children }) {
   }
 
   function logout() {
+    console.log('logging out')
     return signOut(auth)
   }
 
@@ -54,15 +54,10 @@ export default function AuthContextProvider({ children }) {
     return signInWithPopup(auth, provider)
   }
 
-  function signInWithFacebook() {
-    const provider = new FacebookAuthProvider()
-    return signInWithPopup(auth, provider)
-  }
-
   const value = {
     curUser,
+    setCurUser,
     signInWithGoogle,
-    signInWithFacebook,
     login,
     register,
     logout,

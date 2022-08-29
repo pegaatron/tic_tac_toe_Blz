@@ -11,11 +11,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cors())
 
-// TEST Route
-app.get('/test', controller.test);
-
 // USER Routes
 app.post('/user', controller.createUser);
+app.get('/user', controller.getUser);
 
 // SCORE Routes
 app.get('/score', controller.getUserScore);

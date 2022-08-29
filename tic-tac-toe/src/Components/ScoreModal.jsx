@@ -42,16 +42,8 @@ const ScoreModal = ({restart}) => {
       <ButtonDiv>
         <RestartBtn onClick={() => {restart()}}>Play Again?</RestartBtn>
       </ButtonDiv>
-
     </ModalContainer>
   )
 }
 
 export default ScoreModal;
-// position: absolute;
-// top: 50%;
-// left: 50%;
-// transform: translate(-50%, -50%);
-
-// background: white;
-// border: 1px solid #ccc;
