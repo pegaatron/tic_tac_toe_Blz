@@ -4,7 +4,8 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 5%;
-  padding-top: 2%
+  padding-top: 2%;
+  font-family: 'Silkscreen', cursive;
 `;
 
 export const SettingsDiv = styled.div`
@@ -40,6 +41,9 @@ margin-right: auto;
 width: 40%;
 `;
 
+export const TurnFont = styled.h2`
+  font-family: 'Bebas Neue', cursive;
+`;
 
 export const RestartBtn = styled.button`
   height: 80%;
@@ -47,6 +51,7 @@ export const RestartBtn = styled.button`
   background-color: yellow;
   text-align: center;
   margin-right: 10px;
+  font-family: 'Silkscreen', cursive;
 `;
 
 export const EndDiv = styled.div`
@@ -56,9 +61,8 @@ export const EndDiv = styled.div`
 `;
 export const TurnDiv = styled.div`
   display: flex;
-  justify-content: end;
+  justify-content: center;
   margin-top: 15px;
-  margin-right: 10%;
   font-size: small;
   font-family: "Courier New", monospace;
 `;

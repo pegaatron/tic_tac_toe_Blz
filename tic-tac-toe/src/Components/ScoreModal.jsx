@@ -21,9 +21,6 @@ const ScoreModal = ({restart}) => {
   const {curUser} = useAuth();
 
   useEffect(() => {
-    console.log(wins)
-    console.log(ties)
-    console.log(losses)
     if (winner === 'tie') {
       setTies(ties+1);
     } else if (winner === 'player') {
@@ -84,7 +81,7 @@ const ScoreModal = ({restart}) => {
         <ScoreContent>{losses}</ScoreContent>
       </ScoreDiv>
       <ButtonDiv>
-        <RestartBtn onClick={() => {restart()}}>Play Again?</RestartBtn>
+        <RestartBtn onClick={() => {restart()}}>Play Again</RestartBtn>
       </ButtonDiv>
       <ButtonDiv>
         <RestartBtn onClick={updateScores}>Back To Home</RestartBtn>

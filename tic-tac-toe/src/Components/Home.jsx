@@ -46,7 +46,6 @@ const Home = () => {
 
 
   const getUserHistory = async () => {
-    console.log('getuserhist:', curUser.email)
     try {
       const res = await axios.get(`${process.env.REACT_APP_URL}/user`,
       { params: {email: curUser.email}});
@@ -59,7 +58,6 @@ const Home = () => {
           console.log('err creating new acc')
         }
       } else {
-        console.log('resData:',res.data)
         setWins(res.data[0].win);
         setTies(res.data[0].tie);
         setL(res.data[0].loss);

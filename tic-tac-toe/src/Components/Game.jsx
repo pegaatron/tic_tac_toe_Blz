@@ -1,6 +1,12 @@
 import React, { useState, useContext, useEffect, createContext } from 'react';
 import GameBoard from './Board/GameBoard.jsx';
-import { EndDiv, TurnDiv, RestartBtn, CenterDiv, GameContainer } from '../Css/StyleComps.js'
+import { EndDiv,
+  TurnDiv,
+  RestartBtn,
+  CenterDiv,
+  GameContainer,
+  TurnFont
+} from '../Css/StyleComps.js'
 import {UserCharContext} from './Home.jsx'
 import ScoreModal from './ScoreModal.jsx'
 
@@ -142,7 +148,7 @@ const Game = () => {
           <h2>{winner === 'tie' ? 'Tie!'
           : winner === 'comp' ? 'You Lost!' : "You Won!"}</h2>
         </EndDiv>
-        : <h2>{cpuNext ? 'Computer\'s Turn': 'Your Turn'}</h2>
+        : <TurnFont>{cpuNext ? 'Computer\'s Turn': 'Your Turn'}</TurnFont>
         }
       </TurnDiv>
     </BoardStateContext.Provider>

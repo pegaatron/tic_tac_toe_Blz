@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useContext} from "react";
 import {useAuth} from '../Contexts/AuthContext'
 import {SettingsContext} from './Home.jsx';
 import {
@@ -16,7 +16,7 @@ import {
  import ToggleButton from 'react-bootstrap/ToggleButton';
 
 const Settings = ({status}) => {
-  const { logout, curUser } = useAuth();
+  const { logout } = useAuth();
   const {setUserChar, setCompChar, userChar, setEasy, isEasy, setStatus, setShowSet} = useContext(SettingsContext);
   const [charRadio, setCharRadio] = useState(userChar === 'x' ? '1' : '2');
   const [diffLevel, setDiff] = useState(isEasy ? '1' : '2');
