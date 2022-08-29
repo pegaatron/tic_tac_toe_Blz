@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 export const Header = styled.div`
   display: flex;
-  justify-content: space-between;
-  padding: 5%;
-  padding-top: 2%;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
   font-family: 'Silkscreen', cursive;
 `;
 
@@ -35,10 +35,7 @@ export const BoardContainer = styled.div`
 `;
 
 export const GameDiv = styled.div`
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: 40%;
+
 `;
 
 export const TurnFont = styled.h2`
@@ -73,8 +70,9 @@ export const Tiles = styled.button`
   max-height: 10%;
   background-color: white;
   cursor: pointer;
-  font-size: 1.5em;
+  font-size: 2em;
   fontWeight: 600;
+  font-family: 'Bebas Neue', cursive;
   color: ${(props) => {
     return props.value === '-' ? 'white' : 'black'
   }}
@@ -161,6 +159,7 @@ export const LoginContainer = styled.div`
   width: 30%;
   height: 80%;
   overflow: hidden;
+  font-family: 'Silkscreen', cursive;
 `;
 
 export const ErrMsg = styled.h6`
@@ -244,3 +243,12 @@ export const GameContainer= styled.div`
   align-items: center;
 `
 
+export const SettingCornerDiv = styled.div`
+  position: relative;
+`
+
+export const SettingsRC = styled.div`
+  position: absolute;
+  top: 0px;
+  right: 16px;
+`

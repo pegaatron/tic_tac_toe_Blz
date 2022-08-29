@@ -145,8 +145,8 @@ const Game = () => {
         {isOver ?
         <EndDiv>
           <RestartBtn onClick={() => restartGame()}>Play Again?</RestartBtn>
-          <h2>{winner === 'tie' ? 'Tie!'
-          : winner === 'comp' ? 'You Lost!' : "You Won!"}</h2>
+          <TurnFont>{winner === 'tie' ? 'Tie!'
+          : winner === 'comp' ? 'You Lost!' : "You Won!"}</TurnFont>
         </EndDiv>
         : <TurnFont>{cpuNext ? 'Computer\'s Turn': 'Your Turn'}</TurnFont>
         }

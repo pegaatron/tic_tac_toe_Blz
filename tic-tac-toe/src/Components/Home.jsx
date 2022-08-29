@@ -8,6 +8,8 @@ import { Header,
    CenterDiv,
   GameContainer,
   RestartBtn,
+  SettingCornerDiv,
+  SettingsRC
 } from '../Css/StyleComps.js';
 import { useAuth } from '../Contexts/AuthContext.js';
 import axios from 'axios';
@@ -41,7 +43,9 @@ const Home = () => {
   }, [curUser])
 
   const toggleSetting = () => {
-    setShowSet(!showSetting)
+    if (!isStarted) {
+      setShowSet(!showSetting)
+    }
   }
 
 
@@ -69,7 +73,6 @@ const Home = () => {
 
   const startGame = () => {
     setIsStarted(true)
-    setShowSet(false)
   }
 
   return (
@@ -78,21 +81,25 @@ const Home = () => {
         <div>
           <h1>Tic Tac Toe</h1>
         </div>
+      </Header>
+      <Header>
         <SettingsContext.Provider value={{setUserChar, setCompChar, userChar, setEasy, isEasy, setStatus, setShowSet}}>
-          { isSignedIn && !isStarted?
+          { isSignedIn ?
           <SettingsDiv>
             {showSetting ?
             <CenterDiv>
               <Settings/>
             </CenterDiv>
-            :<h5 onClick={toggleSetting}>
-              <FiSettings/> Settings
-              </h5>}
+            :
+              <h5 onClick={toggleSetting}>
+                <FiSettings/> Settings
+                </h5>}
           </SettingsDiv>
           : null
           }
         </SettingsContext.Provider>
       </Header>
+      <Header>
       {isSignedIn ?
       isStarted ?
         <UserCharContext.Provider value ={{userChar, compChar, isEasy, wins, losses, ties, setWins, setTies, setL, setIsStarted}}>
@@ -104,14 +111,14 @@ const Home = () => {
       <GameContainer>
         <RestartBtn
         style={{
-          width: '20%',
+          width: '100%',
           height:'100%',
           }}
         onClick={startGame}
         >Start Game?</RestartBtn>
       </GameContainer>
-
       : <Login/>}
+      </Header>
     </AppContainer>
   )
 
